@@ -36,6 +36,10 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="LightsOut">
+      <HintPath>..\..\..\SteamLibrary\steamapps\workshop\content\294100\2584269293\Assemblies\LightsOut.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -50,9 +54,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Template.cs" />
-    <Compile Include="Settings.cs" />
+    <Compile Include="Compatibility\Windows_GetGlowAt_Patch.cs" />
+    <Compile Include="DayNightMapComp.cs" />
+    <Compile Include="ItsBrightEnough.cs" />
+    <Compile Include="BrightEnoughSettings.cs" />
+    <Compile Include="LightsOut_Resources_SetTicksRemaining.cs" />
+    <Compile Include="LightsOut_RoomChange_PatchPostfix.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Krafs.Publicizer">
@@ -73,7 +82,4 @@
   <PropertyGroup>
     <PostBuildEvent>XCOPY "$(ProjectDir)\..\$(SolutionName)\*.*" "H:\SteamLibrary\steamapps\common\RimWorld\Mods\$(SolutionName)" /Y /I /E</PostBuildEvent>
   </PropertyGroup>
-  <ItemGroup>
-    <Publicize Include="Assembly-CSharp" />
-  </ItemGroup>
 </Project>
